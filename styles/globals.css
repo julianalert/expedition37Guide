@@ -533,9 +533,9 @@ section { padding: 80px 0; }
 .steps::before {
   content: '';
   position: absolute;
-  left: 27px;
-  top: 40px;
-  bottom: 40px;
+  left: 21px;
+  top: 32px;
+  bottom: 32px;
   width: 1px;
   background: var(--border);
 }
@@ -551,8 +551,8 @@ section { padding: 80px 0; }
 .step-item:last-child { margin-bottom: 0; }
 
 .step-num {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: white;
   border: 1.5px solid var(--border);
@@ -561,7 +561,7 @@ section { padding: 80px 0; }
   justify-content: center;
   flex-shrink: 0;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 500;
   line-height: 1;
   color: var(--ink);

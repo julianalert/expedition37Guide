@@ -110,11 +110,6 @@ export default function Home() {
                 <div className="strip-stat-num">24h</div>
                 <div className="strip-stat-label">How long it takes us<br />to build your full plan</div>
               </div>
-              <div className="strip-divider"></div>
-              <div className="strip-stat">
-                <div className="strip-stat-num">$37</div>
-                <div className="strip-stat-label">One-time payment. <br />No hidden fees.</div>
-              </div>
             </div>
           </div>
         </div>
@@ -320,9 +315,9 @@ export default function Home() {
               <div className="testi-stars">★★★★★</div>
               <div className="testi-text">&quot;Travelling with two kids under 7 means every decision is ten times harder. The plan was perfectly calibrated for our family. I didn&apos;t have to second-guess a thing.&quot;</div>
               <div className="testi-author">
-                <img src="/testimonial-01.avif" alt="Arah" className="testi-avatar" width={36} height={36} />
+                <img src="/testimonial-01.avif" alt="Marcus" className="testi-avatar" width={36} height={36} />
                 <div>
-                  <div className="testi-name">Arah</div>
+                  <div className="testi-name">Marcus</div>
                   <div className="testi-meta">Family trip · Portugal</div>
                 </div>
               </div>
