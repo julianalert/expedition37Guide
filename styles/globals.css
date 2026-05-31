@@ -1462,3 +1462,877 @@ footer p {
   transform: none;
   box-shadow: none;
 }
+
+/* =================== ORDER PAGE =================== */
+.order-wrap {
+  background: var(--warm-white);
+}
+
+.order-nav-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* Hero */
+.order-hero {
+  padding: 72px 0 56px;
+  background: var(--warm-white);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.order-eyebrow::before {
+  content: '✦';
+  font-size: 9px;
+}
+
+.order-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 58px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s 0.07s ease both;
+}
+
+.order-h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.order-sub {
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto 32px;
+  font-weight: 300;
+  animation: fadeUp 0.5s 0.13s ease both;
+}
+
+/* Main 2-col layout */
+.order-main-section {
+  padding: 72px 0 40px;
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+.order-section-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.order-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.order-section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Includes list */
+.order-includes {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.order-include-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.order-include-item:first-child { border-top: 1px solid var(--border); }
+
+.order-include-icon {
+  font-size: 20px;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* PDF preview */
+.order-pdf-preview {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.order-pdf-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 16px 20px;
+  background: var(--sand);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Testimonials on left */
+.order-testi-block {
+  margin-top: 8px;
+}
+
+.order-testi {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.order-testi-stars {
+  color: #f59e0b;
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+
+.order-testi-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.order-testi-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.order-testi-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--sand);
+}
+
+/* ─── Sticky price card ─── */
+.order-right {
+  position: sticky;
+  top: 24px;
+}
+
+.order-price-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.order-price-card-top {
+  background: var(--ink);
+  padding: 32px 28px 28px;
+  text-align: center;
+}
+
+.order-price-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+.order-price-amount {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.order-price-currency {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-top: 12px;
+}
+
+.order-price-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+}
+
+.order-price-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.03em;
+}
+
+/* Price includes mini */
+.order-price-includes-mini {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-price-include-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.order-check {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* CTA button */
+.order-cta-btn {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 20px 20px 0;
+  padding: 18px 24px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.order-cta-btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(200,135,74,0.35);
+}
+
+.order-cta-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.order-cta-btn--center {
+  width: auto;
+  display: inline-block;
+  padding: 20px 52px;
+  font-size: 17px;
+}
+
+.order-btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.order-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.order-error {
+  margin: 12px 20px 0;
+  font-size: 13px;
+  color: #dc2626;
+  text-align: center;
+}
+
+/* Security row */
+.order-security-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px 0;
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+/* Guarantee mini */
+.order-guarantee-mini {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 16px 20px;
+  padding: 16px;
+  background: var(--green-light);
+  border: 1px solid rgba(61,107,79,0.15);
+  border-radius: 12px;
+}
+
+.order-guarantee-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.order-guarantee-mini strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.order-guarantee-mini p {
+  font-size: 12px;
+  color: rgba(61,107,79,0.8);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Delivery badge */
+.order-delivery-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px 20px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.order-delivery-badge strong {
+  color: var(--ink);
+}
+
+/* Comparison */
+.order-comparison {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.order-comparison-title {
+  background: var(--sand);
+  padding: 12px 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.order-comparison-rows { padding: 0; }
+
+.order-comparison-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.order-comparison-row:last-child { border-bottom: none; }
+
+.order-comparison-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--ink-muted);
+}
+
+.order-comparison-val.crossed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.order-comparison-total {
+  background: var(--accent-light);
+  font-weight: 500;
+}
+
+.order-comparison-val.accent {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+/* Guarantee full */
+.order-guarantee-section {
+  padding: 48px 0;
+  background: var(--green-light);
+  border-top: 1px solid rgba(61,107,79,0.12);
+  border-bottom: 1px solid rgba(61,107,79,0.12);
+}
+
+.order-guarantee-full {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  max-width: 760px;
+}
+
+.order-guarantee-full-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.order-guarantee-full-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.order-guarantee-full-text p {
+  font-size: 15px;
+  color: rgba(61,107,79,0.8);
+  line-height: 1.7;
+}
+
+/* How it works on order page */
+.order-how-section {
+  padding: 72px 0 64px;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+
+.order-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.order-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 220px;
+}
+
+.order-step-num,
+.order-step-done {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.order-step-num {
+  background: white;
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+}
+
+.order-step-done {
+  background: var(--accent);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+}
+
+.order-step-arrow {
+  font-size: 24px;
+  color: var(--border);
+  padding-top: 16px;
+  flex-shrink: 0;
+}
+
+.order-step-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.order-step-content p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.order-final-cta-wrap {
+  text-align: center;
+}
+
+.order-final-trust {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* FAQ section */
+.order-faq-section {
+  padding: 72px 0;
+  background: var(--warm-white);
+}
+
+/* =================== THANK-YOU PAGE =================== */
+.ty-wrap {
+  background: var(--warm-white);
+}
+
+.ty-check-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Hero */
+.ty-hero {
+  padding: 80px 0 72px;
+  background: var(--ink);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ty-hero-glow {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,135,74,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ty-icon-wrap {
+  margin-bottom: 24px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.ty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(200,135,74,0.15);
+  border: 1px solid rgba(200,135,74,0.3);
+  font-size: 28px;
+  color: var(--accent);
+}
+
+.ty-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: white;
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s 0.08s ease both;
+}
+
+.ty-h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.ty-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  font-weight: 300;
+  animation: fadeUp 0.5s 0.13s ease both;
+}
+
+.ty-delivery-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,135,74,0.15);
+  border: 1px solid rgba(200,135,74,0.3);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  animation: fadeUp 0.5s 0.18s ease both;
+}
+
+.ty-delivery-pill strong { color: white; }
+
+/* Next steps */
+.ty-next-section {
+  padding: 72px 0 60px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.ty-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ty-step {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.ty-step-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.ty-step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.ty-step-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* Reassurance */
+.ty-reassurance-section {
+  padding: 64px 0;
+  background: var(--warm-white);
+}
+
+.ty-reassurance-card,
+.ty-guarantee-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+
+.ty-reassurance-icon,
+.ty-guarantee-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ty-reassurance-card h3,
+.ty-guarantee-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.ty-reassurance-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ty-reassurance-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  padding: 5px 0;
+}
+
+.ty-reassurance-list li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ty-guarantee-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.ty-contact-link {
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent-light);
+  transition: border-color 0.2s;
+}
+
+.ty-contact-link:hover { border-color: var(--accent); }
+
+.ty-spam-note {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--accent-light);
+  border: 1px solid rgba(200,135,74,0.2);
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+
+.ty-spam-icon { font-size: 20px; flex-shrink: 0; }
+
+.ty-spam-note p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Emotional close */
+.ty-close-section {
+  padding: 80px 0;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.ty-close-quote {
+  margin-bottom: 20px;
+}
+
+.ty-close-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.ty-close-sub {
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+
+/* =================== ORDER / TY RESPONSIVE =================== */
+@media (max-width: 860px) {
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .order-right {
+    position: static;
+    order: -1;
+  }
+
+  .order-price-card {
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+
+  .order-comparison {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .order-guarantee-full {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .order-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-step-arrow {
+    transform: rotate(90deg);
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .ty-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ty-reassurance-card,
+  .ty-guarantee-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .order-cta-btn--center {
+    width: 100%;
+    padding: 20px 24px;
+  }
+}

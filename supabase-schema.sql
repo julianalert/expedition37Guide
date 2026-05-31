@@ -55,8 +55,20 @@ CREATE TABLE submissions (
 
   -- Tracks the furthest step reached — useful for funnel drop-off analysis.
   -- 1 = left after basics, 2 = left after style, 3 = left after preferences, 4 = submitted
-  step_reached    integer     DEFAULT 1
+  step_reached    integer     DEFAULT 1,
+
+  -- Set by the Stripe webhook on checkout.session.completed
+  stripe_session_id text
 );
+
+-- If you already created the table without stripe_session_id, run this migration:
+-- ALTER TABLE submissions ADD COLUMN stripe_session_id text;
+
+-- Status workflow reminder:
+--   received    → form submitted, awaiting payment
+--   in_progress → payment confirmed (set by Stripe webhook), brief being built
+--   completed   → brief PDF is ready
+--   delivered   → brief sent to customer
 
 -- Allow anyone with the anon key to INSERT (public form).
 -- Restrict SELECT/UPDATE/DELETE to authenticated users (your team only).

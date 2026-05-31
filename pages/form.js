@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 
 const STEP_LABELS = ['Basics', 'Travel Style', 'Preferences', 'Final Details'];
@@ -71,6 +72,7 @@ function MultiPillGroup({ id, options, value, onChange }) {
 }
 
 export default function FormPage() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -248,7 +250,14 @@ export default function FormPage() {
     setSubmitError(null);
 
     // Final UPDATE with step 4 data — row was already created on step 1
-    if (!supabase || !submissionId) { setSubmitting(false); setSubmitted(true); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    if (!supabase || !submissionId) {
+      setSubmitting(false);
+      const params = new URLSearchParams();
+      if (email) params.set('email', email);
+      if (firstName) params.set('name', firstName);
+      router.push(`/order?${params.toString()}`);
+      return;
+    }
     const { error } = await supabase
       .from('submissions')
       .update({
@@ -270,8 +279,11 @@ export default function FormPage() {
       return;
     }
 
-    setSubmitted(true);
-    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+    const params = new URLSearchParams();
+    if (submissionId) params.set('sid', submissionId);
+    if (email) params.set('email', email);
+    if (firstName) params.set('name', firstName);
+    router.push(`/order?${params.toString()}`);
   };
 
   const progress = (step / 4) * 100;
