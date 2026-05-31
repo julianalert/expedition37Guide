@@ -190,7 +190,93 @@ export default async function handler(req, res) {
     });
 
     if (emailError) {
-      console.error('Resend error:', emailError);
+      console.error('Resend team notification error:', emailError);
+    }
+
+    // ── 4. Send confirmation email to the customer ─────────────────────────
+    if (email && email !== '—') {
+      const clientHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f0e8; margin: 0; padding: 24px; color: #1a1814; }
+  .card { background: white; border-radius: 16px; padding: 40px; max-width: 560px; margin: 0 auto; border: 1px solid #ddd8ce; }
+  .logo { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 32px; color: #1a1814; }
+  .badge { display: inline-block; background: #3d6b4f; color: white; border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 12px; line-height: 1.25; }
+  p { font-size: 15px; color: #4a4640; line-height: 1.7; margin: 0 0 20px; }
+  .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #c8874a; font-weight: 600; margin: 28px 0 12px; }
+  ul { padding: 0; margin: 0 0 24px; list-style: none; }
+  li { font-size: 14px; color: #4a4640; padding: 7px 0; border-bottom: 1px solid #f5f0e8; display: flex; gap: 10px; }
+  li::before { content: '✓'; color: #c8874a; font-weight: 600; flex-shrink: 0; }
+  .highlight-box { background: #f5f0e8; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .highlight-box strong { display: block; font-size: 14px; color: #1a1814; margin-bottom: 4px; }
+  .highlight-box span { font-size: 13px; color: #9a9490; }
+  .divider { border: none; border-top: 1px solid #ddd8ce; margin: 24px 0; }
+  .footer { text-align: center; font-size: 12px; color: #9a9490; margin-top: 24px; line-height: 1.6; }
+  a { color: #c8874a; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">Detour</div>
+  <div class="badge">✓ Payment confirmed</div>
+  <h1>You&rsquo;re all set${name && name !== 'Unknown' ? `, ${name}` : ''}.</h1>
+  <p>
+    Thank you for your order. We&rsquo;ve received your form answers and payment &mdash; your personalised trip brief is now in our hands.
+  </p>
+
+  <div class="highlight-box">
+    <strong>📬 Delivery within 24 hours</strong>
+    <span>Your brief will land in this inbox. Most arrive in 12&ndash;18 hours.</span>
+  </div>
+
+  <p class="section-title">What you&rsquo;ll receive</p>
+  <ul>
+    <li>3 personalised destination picks, ranked &amp; scored for your profile</li>
+    <li>Full day-by-day itinerary at your pace</li>
+    <li>Accommodation shortlist across 3 price tiers</li>
+    <li>Restaurant picks &amp; hidden gems (filtered for your needs)</li>
+    <li>Practical info: visa, SIM, transport, health, what to pack</li>
+    <li>Realistic per-person budget breakdown</li>
+    <li>Beautifully formatted, print-ready PDF</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>🛡 7-day revision guarantee</strong>
+    <span>If anything doesn&rsquo;t feel right, email us within 7 days and we&rsquo;ll fix it &mdash; free of charge.</span>
+  </div>
+
+  <hr class="divider" />
+
+  <p style="font-size:14px;">
+    <strong>One quick tip:</strong> add <strong>hello@trydetour.com</strong> to your contacts so your brief doesn&rsquo;t land in spam. While you wait, we may send one short clarifying question if needed &mdash; so keep an eye out.
+  </p>
+
+  <p style="font-size:14px;margin-bottom:0;">
+    Questions? Reply to this email or reach us at <a href="mailto:hello@trydetour.com">hello@trydetour.com</a>.
+  </p>
+</div>
+<p class="footer">
+  trydetour.com &middot; Made for travellers who have better things to do than plan.<br />
+  &copy; ${new Date().getFullYear()} Detour
+</p>
+</body>
+</html>`;
+
+      const { error: clientEmailError } = await resend.emails.send({
+        from: 'Detour <hello@trydetour.com>',
+        to: [email],
+        subject: `Your trip brief is being built — expect it within 24 hours`,
+        html: clientHtml,
+      });
+
+      if (clientEmailError) {
+        console.error('Resend client email error:', clientEmailError);
+      }
     }
   }
 
