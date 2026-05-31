@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 
@@ -108,6 +108,63 @@ export default function FormPage() {
   const [avoid, setAvoid] = useState('');
   const [other, setOther] = useState('');
   const [source, setSource] = useState('');
+
+  // Resume-from-email loading state
+  const [resumeLoading, setResumeLoading] = useState(false);
+
+  // Pre-fill the form when ?resume=<submission_id> is present in the URL
+  useEffect(() => {
+    if (!router.isReady) return;
+    const resumeId = router.query.resume;
+    if (!resumeId) return;
+
+    setResumeLoading(true);
+    fetch(`/api/get-submission?id=${resumeId}`)
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.alreadyPaid) {
+          // Already paid — send them to the order page
+          router.replace('/order');
+          return;
+        }
+        const s = json.submission;
+        if (!s) return;
+
+        // Step 1
+        if (s.first_name) setFirstName(s.first_name);
+        if (s.email) setEmail(s.email);
+        if (s.departure_date) setDepartureDate(s.departure_date);
+        if (s.return_date) setReturnDate(s.return_date);
+        if (s.departure_city) setDepartureCity(s.departure_city);
+        if (s.group_type) setGroupType(s.group_type);
+        if (s.kids_ages) setKidsAges(s.kids_ages);
+
+        // Step 2
+        if (s.trip_goals?.length) setTripGoal(s.trip_goals);
+        if (s.pace) setPace(s.pace);
+        if (s.accommodation_style?.length) setAccom(s.accommodation_style);
+        if (s.budget_per_person) setBudget(s.budget_per_person);
+
+        // Step 3
+        if (s.dietary?.length) setDietary(s.dietary);
+        if (s.mobility) setMobility(s.mobility);
+        if (s.priorities?.length) setImportant(s.priorities);
+        if (s.destination_choice) setDestChoice(s.destination_choice);
+        if (s.destination_hint) setDestText(s.destination_hint);
+
+        // Step 4
+        if (s.dream_day) setDreamDay(s.dream_day);
+        if (s.past_trips) setPastTrips(s.past_trips);
+        if (s.avoid) setAvoid(s.avoid);
+        if (s.other_notes) setOther(s.other_notes);
+        if (s.source) setSource(s.source);
+
+        // Restore the submission ID so all further saves UPDATE the same row
+        setSubmissionId(s.id);
+      })
+      .catch((err) => console.error('[Resume] fetch error:', err))
+      .finally(() => setResumeLoading(false));
+  }, [router.isReady]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const clearStepError = (field) =>
     setStepErrors((prev) => {
@@ -304,6 +361,20 @@ export default function FormPage() {
       </Head>
 
       <div className="form-page-wrap">
+
+        {/* Resume loading overlay */}
+        {resumeLoading && (
+          <div style={{
+            position: 'fixed', inset: 0, background: 'rgba(245,240,232,0.85)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 999, backdropFilter: 'blur(4px)',
+          }}>
+            <div style={{ textAlign: 'center', color: '#4a4640', fontSize: '15px' }}>
+              <div style={{ fontSize: '24px', marginBottom: '12px' }}>✦</div>
+              Restoring your progress…
+            </div>
+          </div>
+        )}
 
         {/* Header */}
         <div className="form-header">

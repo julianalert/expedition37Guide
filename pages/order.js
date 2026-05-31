@@ -127,15 +127,6 @@ export default function OrderPage() {
                   {name ? <>Almost there, <em>{name}.</em></> : <>Your plan is almost<br /><em>ready to build.</em></>}
                 </h2>
 
-                <ul className="order-includes reveal">
-                  {includes.map((item) => (
-                    <li key={item.label} className="order-include-item">
-                      <span className="order-include-icon">{item.icon}</span>
-                      <span>{item.label}</span>
-                    </li>
-                  ))}
-                </ul>
-
                 <div className="order-pdf-preview reveal">
                   <div className="order-pdf-label">What&apos;s inside your PDF</div>
                   {[
@@ -182,16 +173,15 @@ export default function OrderPage() {
               <div className="order-right">
                 <div className="order-price-card">
                   <div className="order-price-card-top">
-                    <div className="order-price-eyebrow">Detour — Trip Brief</div>
                     <div className="order-price-amount">
                       <span className="order-price-currency">$</span>
                       <span className="order-price-num">37</span>
                     </div>
-                    <div className="order-price-desc">One-time · No subscription · Delivered in 24h</div>
+                    <div className="order-price-desc">One time payment · Delivered in 24h</div>
                   </div>
 
                   <div className="order-price-includes-mini">
-                    {includes.slice(0, 5).map((item) => (
+                    {includes.slice(1, 6).map((item) => (
                       <div key={item.label} className="order-price-include-row">
                         <span className="order-check">✓</span>
                         <span>{item.label}</span>
@@ -199,7 +189,7 @@ export default function OrderPage() {
                     ))}
                     <div className="order-price-include-row">
                       <span className="order-check">✓</span>
-                      <span>+ 3 more</span>
+                      <span>{includes[6].label}</span>
                     </div>
                   </div>
 
@@ -241,22 +231,26 @@ export default function OrderPage() {
 
                 {/* Cost comparison block */}
                 <div className="order-comparison reveal">
-                  <div className="order-comparison-title">Why $37 is a no-brainer</div>
+                  <div className="order-comparison-title">What bad planning actually costs</div>
                   <div className="order-comparison-rows">
-                    <div className="order-comparison-row">
-                      <span>16h of your time @ $30/hr</span>
+                    <div className="order-comparison-row order-comparison-row--bad">
+                      <span className="order-comparison-label"><span className="order-comparison-x">✗</span>16h of your time @ $30/hr</span>
                       <span className="order-comparison-val crossed">$480</span>
                     </div>
-                    <div className="order-comparison-row">
-                      <span>Suboptimal hotel booked in a rush</span>
+                    <div className="order-comparison-row order-comparison-row--bad">
+                      <span className="order-comparison-label"><span className="order-comparison-x">✗</span>Suboptimal hotel booked in a rush</span>
                       <span className="order-comparison-val crossed">$200+</span>
                     </div>
-                    <div className="order-comparison-row">
-                      <span>Tourist trap restaurants</span>
+                    <div className="order-comparison-row order-comparison-row--bad">
+                      <span className="order-comparison-label"><span className="order-comparison-x">✗</span>Tourist trap restaurants</span>
                       <span className="order-comparison-val crossed">$80+</span>
                     </div>
+                    <div className="order-comparison-row order-comparison-subtotal">
+                      <span>Avoidable waste</span>
+                      <span className="order-comparison-val crossed">$760+</span>
+                    </div>
                     <div className="order-comparison-row order-comparison-total">
-                      <span>Detour trip brief</span>
+                      <span className="order-comparison-label"><span className="order-comparison-check">✓</span>Detour trip brief</span>
                       <span className="order-comparison-val accent">$37</span>
                     </div>
                   </div>

@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/abandoned-email-cron",
+      "schedule": "*/30 * * * *"
+    }
+  ]
+}

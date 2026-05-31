@@ -94,3 +94,22 @@ CREATE POLICY "Authenticated users can read and update"
 -- Handy index for your dashboard queries
 CREATE INDEX submissions_status_idx  ON submissions (status);
 CREATE INDEX submissions_created_idx ON submissions (created_at DESC);
+
+-- ── ABANDONED FORM RECOVERY SEQUENCE ─────────────────────────────────────────
+-- Run this migration if the table already exists:
+ALTER TABLE submissions
+  ADD COLUMN IF NOT EXISTS abandoned_email_1_sent_at  timestamptz,
+  ADD COLUMN IF NOT EXISTS abandoned_email_2_sent_at  timestamptz,
+  ADD COLUMN IF NOT EXISTS abandoned_email_3_sent_at  timestamptz,
+  ADD COLUMN IF NOT EXISTS abandoned_email_4_sent_at  timestamptz,
+  ADD COLUMN IF NOT EXISTS abandoned_sequence_stopped boolean DEFAULT false;
+
+-- Sequence logic:
+--   Email 1 → 1 hour after created_at (if no payment)
+--   Email 2 → 24h after Email 1 sent
+--   Email 3 → 72h after Email 1 sent
+--   Email 4 → 7 days after Email 1 sent
+-- Exit:  status becomes 'in_progress' (payment confirmed) → stopped immediately
+--        unsubscribe link clicked → abandoned_sequence_stopped = true
+--        departure_date has passed → stopped
+--        departure_date within 48h → skip straight to Email 4

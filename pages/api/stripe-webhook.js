@@ -88,6 +88,7 @@ export default async function handler(req, res) {
         .update({
           status: 'in_progress',
           stripe_session_id: session.id,
+          abandoned_sequence_stopped: true,
         })
         .eq('id', submissionId);
 
