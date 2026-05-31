@@ -185,7 +185,7 @@ export default function OrderPage() {
                     <div className="order-price-eyebrow">Detour — Trip Brief</div>
                     <div className="order-price-amount">
                       <span className="order-price-currency">$</span>
-                      <span className="order-price-num">1</span>
+                      <span className="order-price-num">37</span>
                     </div>
                     <div className="order-price-desc">One-time · No subscription · Delivered in 24h</div>
                   </div>
@@ -214,7 +214,7 @@ export default function OrderPage() {
                         Redirecting to checkout…
                       </span>
                     ) : (
-                      'Get my trip plan for $1 →'
+                      'Get my trip plan for $37 →'
                     )}
                   </button>
 
@@ -257,7 +257,7 @@ export default function OrderPage() {
                     </div>
                     <div className="order-comparison-row order-comparison-total">
                       <span>Detour trip brief</span>
-                      <span className="order-comparison-val accent">$1</span>
+                      <span className="order-comparison-val accent">$37</span>
                     </div>
                   </div>
                 </div>
@@ -321,7 +321,7 @@ export default function OrderPage() {
                 onClick={handleCheckout}
                 disabled={loading}
               >
-                {loading ? 'Redirecting…' : 'Get my trip plan for $1 →'}
+                {loading ? 'Redirecting…' : 'Get my trip plan for $37 →'}
               </button>
               <p className="order-final-trust">Delivered within 24 hours · Free revision within 7 days</p>
             </div>
