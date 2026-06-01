@@ -104,6 +104,24 @@ ALTER TABLE submissions
   ADD COLUMN IF NOT EXISTS abandoned_email_4_sent_at  timestamptz,
   ADD COLUMN IF NOT EXISTS abandoned_sequence_stopped boolean DEFAULT false;
 
+-- ── BRIEF GENERATION ──────────────────────────────────────────────────────────
+-- Run this migration to add the brief generation columns:
+ALTER TABLE submissions
+  ADD COLUMN IF NOT EXISTS brief_generation_status text,
+  ADD COLUMN IF NOT EXISTS brief_data              jsonb,
+  ADD COLUMN IF NOT EXISTS brief_generated_at      timestamptz;
+
+-- brief_generation_status values:
+--   pending    → payment confirmed, generation queued
+--   generating → Claude call in progress (prevents double-processing)
+--   done       → brief_data stored, delivery email sent
+--   failed     → generation failed after retries, team alerted
+
+-- Index speeds up the cron query (pending rows where payment confirmed)
+CREATE INDEX IF NOT EXISTS submissions_brief_status_idx
+  ON submissions (brief_generation_status)
+  WHERE status = 'in_progress';
+
 -- Sequence logic:
 --   Email 1 → 1 hour after created_at (if no payment)
 --   Email 2 → 24h after Email 1 sent

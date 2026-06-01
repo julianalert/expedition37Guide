@@ -82,13 +82,14 @@ export default async function handler(req, res) {
         submission = data;
       }
 
-      // Mark as in_progress so you know it's paid and needs work
+      // Mark as in_progress and queue brief generation
       const { error: updateError } = await supabase
         .from('submissions')
         .update({
           status: 'in_progress',
           stripe_session_id: session.id,
           abandoned_sequence_stopped: true,
+          brief_generation_status: 'pending',
         })
         .eq('id', submissionId);
 
@@ -279,6 +280,19 @@ export default async function handler(req, res) {
         console.error('Resend client email error:', clientEmailError);
       }
     }
+  }
+
+  // ── 5. Trigger brief generation (fire-and-forget) ─────────────────────────
+  if (submissionId) {
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://guide.trydetour.com';
+    fetch(`${BASE_URL}/api/generate-trip-brief`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CRON_SECRET}`,
+      },
+      body: JSON.stringify({ submissionId }),
+    }).catch((err) => console.error('[stripe-webhook] Brief trigger failed:', err));
   }
 
   res.status(200).json({ received: true });
