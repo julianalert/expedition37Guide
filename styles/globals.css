@@ -870,9 +870,10 @@ section { padding: 80px 0; }
 }
 
 .mini-page {
-  background: var(--warm-white);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -883,14 +884,33 @@ section { padding: 80px 0; }
 
 .mini-page-title {
   font-size: 13px;
-  color: var(--ink);
+  color: rgba(255,255,255,0.7);
   font-weight: 400;
 }
 
 .mini-page-sub {
   font-size: 11px;
-  color: var(--ink-muted);
+  color: rgba(255,255,255,0.3);
   margin-top: 2px;
+}
+
+/* Override inside order page PDF preview (light background) */
+.order-pdf-preview .mini-page {
+  background: var(--warm-white);
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+}
+
+.order-pdf-preview .mini-page:last-child { border-bottom: none; }
+
+.order-pdf-preview .mini-page-title {
+  color: var(--ink);
+}
+
+.order-pdf-preview .mini-page-sub {
+  color: var(--ink-muted);
 }
 
 /* =================== GUARANTEE =================== */
@@ -1587,7 +1607,7 @@ footer p {
 
 /* PDF preview */
 .order-pdf-preview {
-  background: var(--warm-white);
+  background: var(--cream);
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
