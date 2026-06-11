@@ -13,6 +13,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
       </body>
     </Html>
   );

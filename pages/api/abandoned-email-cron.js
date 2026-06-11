@@ -250,7 +250,7 @@ ${resumeBtn(resumeUrl, 'Resume my brief →')}
 
 <p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">If you're still deciding whether it's worth it — here's the honest version.</p>
 
-<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">The brief costs $37. It takes us 24 hours to build. You get a fully personalised PDF with destination picks, a day-by-day itinerary, where to stay, restaurants worth going to, and everything practical. Built around your specific dates, group, budget, and travel style.</p>
+<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">The brief costs $17 (launch offer — was $97). It takes us 24 hours to build. You get a fully personalised PDF with destination picks, a day-by-day itinerary, where to stay, restaurants worth going to, and everything practical. Built around your specific dates, group, budget, and travel style.</p>
 
 <p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">Not a template. Not a ChatGPT dump. A proper plan.</p>
 
@@ -285,7 +285,7 @@ function buildEmail2(firstName, resumeUrl, unsubscribeUrl) {
   <strong style="color:#1a1814;">The part most people are surprised by:</strong> the qualitative questions in Step 4 — your dream day, past trips you loved, things you want to avoid. That's where the brief stops feeling like a list and starts feeling like someone actually listened.
 </div>
 
-${resumeBtn(resumeUrl, 'Finish my brief — $37 →')}
+${resumeBtn(resumeUrl, 'Finish my brief — $17 →')}
 
 ${sign()}`;
 
@@ -303,15 +303,15 @@ function buildEmail3(firstName, resumeUrl, unsubscribeUrl) {
 
 <p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">She'd been planning a solo trip to Portugal for three months. She had seventeen browser tabs open. She knew she was overthinking it but couldn't stop. She started the Detour form, got to the payment screen, and closed the tab — <em>"I can probably just figure it out myself."</em></p>
 
-<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">She came back two days later. Finished the form. Paid the $37.</p>
+<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">She came back two days later. Finished the form. Paid the $17.</p>
 
 <div style="background:#faf7f2; border:1px solid #ddd8ce; border-radius:10px; padding:18px 20px; margin:22px 0;">
   <div style="color:#c8874a; font-size:13px; letter-spacing:2px; margin-bottom:8px;">★★★★★</div>
-  <div style="font-size:17px; color:#4a4640; line-height:1.55; margin-bottom:10px; font-style:italic;">"I'd been going in circles for weeks. The brief arrived and it was genuinely better than anything I'd built across all those tabs. I booked flights the same afternoon. The restaurant list alone was worth the $37 — every single place was exactly right."</div>
+  <div style="font-size:17px; color:#4a4640; line-height:1.55; margin-bottom:10px; font-style:italic;">"I'd been going in circles for weeks. The brief arrived and it was genuinely better than anything I'd built across all those tabs. I booked flights the same afternoon. The restaurant list alone was worth every penny — every single place was exactly right."</div>
   <div style="font-size:12px; color:#9a9490;">— Marta S. · Solo trip · Lisbon &amp; Porto</div>
 </div>
 
-<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">The thing that holds most people back at this point isn't the $37. It's the quiet suspicion that they should be able to do this themselves — that paying for a plan is somehow lazy, or that it won't be personalised enough to be worth it.</p>
+<p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">The thing that holds most people back at this point isn't the $17. It's the quiet suspicion that they should be able to do this themselves — that paying for a plan is somehow lazy, or that it won't be personalised enough to be worth it.</p>
 
 <p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">You already gave us everything we need. The form you started has your dates, your group, your budget, your vibe. The brief we'd build from it would be specific to you — not a template with your name on it.</p>
 
@@ -347,11 +347,11 @@ function buildEmail4(firstName, sub, resumeUrl, unsubscribeUrl) {
 <p style="font-size:15px; color:#4a4640; line-height:1.8; margin-bottom:18px;">If your trip is still happening, this is the last easy moment to sort the planning. After this, you're starting from scratch — and the 16 hours of research are all yours.</p>
 
 <div style="background:#f5e8d8; border-left:3px solid #c8874a; border-radius:0 8px 8px 0; padding:16px 20px; margin:22px 0; font-size:14px; color:#4a4640; line-height:1.7;">
-  <strong style="color:#1a1814;">Quick reminder of what $37 buys:</strong> A complete personalised trip plan delivered to your inbox in 24 hours. Destination picks, day-by-day itinerary, where to stay, restaurants, visa info, budget breakdown. Built around your exact answers — not a generic template.<br /><br />
+  <strong style="color:#1a1814;">Quick reminder of what $17 buys:</strong> A complete personalised trip plan delivered to your inbox in 24 hours. Destination picks, day-by-day itinerary, where to stay, restaurants, visa info, budget breakdown. Built around your exact answers — not a generic template.<br /><br />
   ${datesLine}
 </div>
 
-${resumeBtn(resumeUrl, 'Complete my brief — $37 →', true)}
+${resumeBtn(resumeUrl, 'Complete my brief — $17 →', true)}
 
 <p style="font-size:13px; color:#9a9490; margin-top:10px;">This is the last email we'll send. Your form data will be cleared after today.</p>
 

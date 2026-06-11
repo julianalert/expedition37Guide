@@ -23,7 +23,7 @@ export default async function handler(req, res) {
               description:
                 'Your fully personalised travel plan: destination picks, day-by-day itinerary, accommodation, restaurants, practical info & budget breakdown. Delivered as a beautifully designed PDF within 24 hours.',
             },
-            unit_amount: 3700,
+            unit_amount: 1700,
           },
           quantity: 1,
         },

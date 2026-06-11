@@ -63,7 +63,7 @@ export default function DetourPaid() {
   return (
     <>
       <Head>
-        <title>Detour · Your Personalised Trip Brief — $37</title>
+        <title>Detour · Your Personalised Trip Brief — $17 Launch Offer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
@@ -113,8 +113,8 @@ export default function DetourPaid() {
               </div>
               <div className="strip-divider"></div>
               <div className="strip-stat">
-                <div className="strip-stat-num">$37</div>
-                <div className="strip-stat-label">One-time payment. <br />No hidden fees.</div>
+                <div className="strip-stat-num">$17</div>
+                <div className="strip-stat-label">Launch offer. <br />One-time payment.</div>
               </div>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function DetourPaid() {
             </div>
             <div className="testi reveal">
               <div className="testi-stars">★★★★★</div>
-              <div className="testi-text">&quot;The restaurant picks alone were worth the $37. Every single place was exactly our vibe. No tourist traps, not a bad meal all week. The hidden viewpoint on day 3 was extraordinary.&quot;</div>
+              <div className="testi-text">&quot;The restaurant picks alone were worth every penny. Every single place was exactly our vibe. No tourist traps, not a bad meal all week. The hidden viewpoint on day 3 was extraordinary.&quot;</div>
               <div className="testi-author">
                 <img src="/priya.avif" alt="Priya" className="testi-avatar" width={36} height={36} />
                 <div>
@@ -404,6 +404,9 @@ export default function DetourPaid() {
 
           <div className="price-card reveal">
             <div className="price-left">
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#3d6b4f', color: 'white', borderRadius: '999px', padding: '5px 14px', fontSize: '13px', fontWeight: 500, marginBottom: '16px' }}>
+                Launch offer — <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>$97</span> → <strong>$17</strong>
+              </div>
               <div className="price-desc">Your personalised trip brief delivered to your inbox within 24 hours.</div>
 
               <ul className="price-includes">
@@ -474,9 +477,13 @@ export default function DetourPaid() {
           </p>
           <Link href="/form" className="btn-primary reveal" style={{ display: 'inline-flex', fontSize: '17px', padding: '20px 44px' }}>
             Get my personalised trip plan
-            <span className="price-tag">$37</span>
+            <span className="price-tag">$17</span>
           </Link>
-          <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--ink-muted)' }}>🔒 Secure checkout · Delivered in 24h · 100% satisfaction guarantee</p>
+          <p style={{ marginTop: '12px', fontSize: '13px', color: 'var(--ink-muted)' }}>
+            <span style={{ textDecoration: 'line-through', marginRight: '6px' }}>$97</span>
+            <strong style={{ color: 'var(--green)' }}>Launch offer — save $80</strong>
+          </p>
+          <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--ink-muted)' }}>🔒 Secure checkout · Delivered in 24h · 100% satisfaction guarantee</p>
         </div>
       </section>
 

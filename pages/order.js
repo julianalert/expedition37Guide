@@ -90,7 +90,7 @@ export default function OrderPage() {
   return (
     <>
       <Head>
-        <title>Detour · Get Your Personalised Trip Brief — $37</title>
+        <title>Detour · Get Your Personalised Trip Brief — $17 Launch Offer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -152,7 +152,7 @@ export default function OrderPage() {
                   <div className="order-section-label" style={{ marginBottom: '20px' }}>What travellers say</div>
                   <div className="order-testi">
                     <div className="order-testi-stars">★★★★★</div>
-                    <p className="order-testi-text">&quot;The restaurant picks alone were worth the $37. Every single place was exactly our vibe. No tourist traps, not a bad meal all week.&quot;</p>
+                    <p className="order-testi-text">&quot;The restaurant picks alone were worth it. Every single place was exactly our vibe. No tourist traps, not a bad meal all week.&quot;</p>
                     <div className="order-testi-author">
                       <img src="/priya.avif" alt="Priya" className="order-testi-avatar" width={32} height={32} />
                       <span>Priya · Couple trip · Tbilisi</span>
@@ -173,9 +173,13 @@ export default function OrderPage() {
               <div className="order-right">
                 <div className="order-price-card">
                   <div className="order-price-card-top">
-                    <div className="order-price-amount">
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#3d6b4f', color: 'white', borderRadius: '999px', padding: '4px 12px', fontSize: '12px', fontWeight: 500, marginBottom: '12px' }}>
+                      Launch offer
+                    </div>
+                    <div className="order-price-amount" style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                      <span style={{ fontSize: '18px', color: 'var(--ink-muted)', textDecoration: 'line-through', fontWeight: 400 }}>$97</span>
                       <span className="order-price-currency">$</span>
-                      <span className="order-price-num">37</span>
+                      <span className="order-price-num">17</span>
                     </div>
                     <div className="order-price-desc">One time payment · Delivered in 24h</div>
                   </div>
@@ -204,7 +208,7 @@ export default function OrderPage() {
                         Redirecting to checkout…
                       </span>
                     ) : (
-                      'Get my trip plan for $37 →'
+                      'Get my trip plan for $17 →'
                     )}
                   </button>
 
@@ -251,7 +255,7 @@ export default function OrderPage() {
                     </div>
                     <div className="order-comparison-row order-comparison-total">
                       <span className="order-comparison-label"><span className="order-comparison-check">✓</span>Detour trip brief</span>
-                      <span className="order-comparison-val accent">$37</span>
+                      <span className="order-comparison-val accent">$17</span>
                     </div>
                   </div>
                 </div>
@@ -315,7 +319,7 @@ export default function OrderPage() {
                 onClick={handleCheckout}
                 disabled={loading}
               >
-                {loading ? 'Redirecting…' : 'Get my trip plan for $37 →'}
+                    {loading ? 'Redirecting…' : 'Get my trip plan for $17 →'}
               </button>
               <p className="order-final-trust">Delivered within 24 hours · Free revision within 7 days</p>
             </div>
